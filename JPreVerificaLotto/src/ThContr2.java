@@ -4,12 +4,12 @@ import java.util.Random;
 /**
  * @author Simone Mauri
  */
-public class ThGenera extends Thread{
+public class ThContr2 extends Thread{
     
     DatiCondivisi dc;
     Random rn = new Random();
 
-    public ThGenera(DatiCondivisi dc) {
+    public ThContr2(DatiCondivisi dc) {
         this.dc = dc;
     }
     
@@ -17,14 +17,15 @@ public class ThGenera extends Thread{
     public void run(){
         
         try {
-            while(dc.isEstazEnd1() == true && dc.isEstazEnd2() == true){}
-            
-            dc.getsEstrai().acquire(2);
+            dc.getsControlla().acquire();
             
         for (int i = 0; i < 5; i++) {
-            dc.getV()[i] = 1 + rn.nextInt(89);
+            if(dc.getV()[i] == dc.getN2()){            
+                dc.setN2find();
+            }
         }
-            dc.getsControlla().release(2);
+            dc.estrazEnded2();
+            dc.getsEstrai().release();
         
         } catch (InterruptedException ex) {
             System.out.print(ex.toString());
