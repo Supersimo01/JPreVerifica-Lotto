@@ -1,5 +1,8 @@
 
+import static java.lang.Thread.sleep;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @version 0.1
@@ -10,7 +13,7 @@ public class main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         
         
         Scanner sc = new Scanner(System.in);
@@ -23,7 +26,7 @@ public class main {
             s1 = sc.nextInt();
         }
         
-        while(s2 < 1 && s2 <=90 && s2 != s1)
+        while((s2 < 1 && s2 <= 90) || s2.equals(s1))
         {
             System.out.println("Inserisci il secondo numero dell'ambo (diverso dal primo)");
             s2 = sc.nextInt();
@@ -38,6 +41,7 @@ public class main {
         th1.start();
         th2.start();
         th3.start();
+        
         
         while(true){
             if(dc.isEstazEnd1() == true && dc.isEstazEnd2() == true){
@@ -57,6 +61,7 @@ public class main {
                 dc.reset();
                 
             }
+            else{sleep(50);}
                 
         }
         

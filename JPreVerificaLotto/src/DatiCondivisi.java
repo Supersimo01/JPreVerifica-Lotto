@@ -70,16 +70,16 @@ public class DatiCondivisi {
 
     
     synchronized public void estrazEnded1() {
-        this.estazEnd1 = false;
+        this.estazEnd1 = true;
     }
     synchronized public void estrazEnded2() {
-        this.estazEnd2 = false;
+        this.estazEnd2 = true;
     }
 
     
     public String Vect() {
 
-        String s = "[ " + v[0].toString() + ", "+ v[1].toString() + ", "+ v[2].toString() + ", "+ v[3].toString() + ", "+ v[4].toString() + "]";
+        String s = "[" + v[0].toString() + ", "+ v[1].toString() + ", "+ v[2].toString() + ", "+ v[3].toString() + ", "+ v[4].toString() + "]";
         return s;
     }
     
@@ -90,6 +90,12 @@ public class DatiCondivisi {
         n2find = false;
               
     }
+
+    synchronized public void setV(Integer[] v) {
+        this.v = v;
+    }
+    
+    
 
 
 }
