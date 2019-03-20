@@ -25,7 +25,7 @@ public class ThContr1 extends Thread{
             }
         }
             dc.estrazEnded1();
-            dc.getsEstrai().release();
+            dc.getPrint().release();
         
         } catch (InterruptedException ex) {
             System.out.print(ex.toString());

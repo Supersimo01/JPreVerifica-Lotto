@@ -10,10 +10,11 @@ public class DatiCondivisi {
     private Integer[] v;
     private Integer N1, N2;
     private boolean n1find, n2find;
-    private Semaphore sEstrai, sControlla;
+    private Semaphore sEstrai;
+    private Semaphore sControlla,Print,nextRound;
     private boolean estazEnd1, estazEnd2;  // serve per far capire al main quando è finita l'estrazione
 
-    public DatiCondivisi(Integer n1, Integer n2) {
+    public DatiCondivisi(Integer n1, Integer n2,int nGiri) {
         this.v = new Integer[5];
         N1 = n1;
         N2 = n2;
@@ -21,8 +22,10 @@ public class DatiCondivisi {
         n2find = false;
         estazEnd1 = false;
         estazEnd2 = false;
-        sEstrai = new Semaphore(2); //doppio semaforo
+        sEstrai = new Semaphore(1); //doppio semaforo
         sControlla = new Semaphore(0);
+        Print = new Semaphore(0);
+        nextRound = new Semaphore(nGiri);
     }
 
     synchronized public Integer[] getV() {
@@ -59,6 +62,11 @@ public class DatiCondivisi {
     synchronized public Semaphore getsControlla() {
         return sControlla;
     }
+
+    synchronized public Semaphore getNextRound() {
+        return nextRound;
+    }
+    
     
     
     public boolean isEstazEnd1() {
@@ -93,6 +101,10 @@ public class DatiCondivisi {
 
     synchronized public void setV(Integer[] v) {
         this.v = v;
+    }
+
+    public Semaphore getPrint() {
+        return Print;
     }
     
     

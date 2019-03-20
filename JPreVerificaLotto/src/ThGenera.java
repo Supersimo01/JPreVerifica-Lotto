@@ -17,9 +17,10 @@ public class ThGenera extends Thread{
     public void run(){
         
         try {
-            while(dc.isEstazEnd1() == true && dc.isEstazEnd2() == true){}
+            while(dc.isEstazEnd1() == false && dc.isEstazEnd2() == false){}
             
-            dc.getsEstrai().acquire(2);
+            dc.getNextRound().acquire();
+            dc.getsEstrai().acquire();
             Integer[] rand = new Integer[5];
         for (int i = 0; i < 5; i++) {
             

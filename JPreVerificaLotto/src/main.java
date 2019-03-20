@@ -20,6 +20,8 @@ public class main {
         Integer s1 = 0;
         Integer s2 = 0;
         
+        int nRuote = 0;
+        
         while(s1 < 1 && s1 <=90)
         {
             System.out.println("Inserisci il primo numero dell'ambo");
@@ -32,18 +34,28 @@ public class main {
             s2 = sc.nextInt();
         }
         
-        DatiCondivisi dc = new DatiCondivisi(s1,s2);
+        while(nRuote < 1){
+            
+            System.out.println("Inserisci il numero di ruote che vuoi giocare");
+            nRuote = sc.nextInt();
+        
+        }
+        
+        DatiCondivisi dc = new DatiCondivisi(s1,s2,nRuote);
         
         ThGenera th1 = new ThGenera(dc);
         ThContr1 th2 = new ThContr1(dc);
         ThContr2 th3 = new ThContr2(dc);
+        thPrint thP = new thPrint(dc);
         
         th1.start();
         th2.start();
         th3.start();
+        thP.start();
         
-        
-        while(true){
+        boolean change = false;
+        for (int i = 0; i < nRuote; i++) {
+           while(true && change == false){
             if(dc.isEstazEnd1() == true && dc.isEstazEnd2() == true){
                 
                 System.out.print("Sono stati estratti i seguenti numeri: ");
@@ -59,9 +71,16 @@ public class main {
                 }
                 
                 dc.reset();
+                change = true;
                 
             }
-            else{sleep(50);}
+            else{
+                sleep(100);
+                change = false;
+            } 
+        }
+        
+        
                 
         }
         
