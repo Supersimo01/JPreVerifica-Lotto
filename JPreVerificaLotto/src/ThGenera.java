@@ -16,8 +16,8 @@ public class ThGenera extends Thread{
     @Override
     public void run(){
         
+        while(true){
         try {
-            while(dc.isEstazEnd1() == false && dc.isEstazEnd2() == false){}
             
             dc.getNextRound().acquire();
             dc.getsEstrai().acquire();
@@ -41,7 +41,8 @@ public class ThGenera extends Thread{
         } catch (InterruptedException ex) {
             System.out.print(ex.toString());
         }
-        
+            
+        }
         
     }
     

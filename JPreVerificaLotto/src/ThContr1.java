@@ -24,7 +24,6 @@ public class ThContr1 extends Thread{
                 dc.setN1find();
             }
         }
-            dc.estrazEnded1();
             dc.getPrint().release();
         
         } catch (InterruptedException ex) {

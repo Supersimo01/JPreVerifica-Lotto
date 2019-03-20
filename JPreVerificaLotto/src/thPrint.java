@@ -26,8 +26,6 @@ public class thPrint extends Thread{
         
         while(true){   
             
-                
-                
             try {
                 dc.getPrint().acquire(2);
                 

@@ -12,7 +12,6 @@ public class DatiCondivisi {
     private boolean n1find, n2find;
     private Semaphore sEstrai;
     private Semaphore sControlla,Print,nextRound;
-    private boolean estazEnd1, estazEnd2;  // serve per far capire al main quando è finita l'estrazione
 
     public DatiCondivisi(Integer n1, Integer n2,int nGiri) {
         this.v = new Integer[5];
@@ -20,8 +19,6 @@ public class DatiCondivisi {
         N2 = n2;
         n1find = false;
         n2find = false;
-        estazEnd1 = false;
-        estazEnd2 = false;
         sEstrai = new Semaphore(1); //doppio semaforo
         sControlla = new Semaphore(0);
         Print = new Semaphore(0);
@@ -67,24 +64,6 @@ public class DatiCondivisi {
         return nextRound;
     }
     
-    
-    
-    public boolean isEstazEnd1() {
-        return estazEnd1;
-    }
-    public boolean isEstazEnd2() {
-        return estazEnd2;
-    }
-
-    
-    synchronized public void estrazEnded1() {
-        this.estazEnd1 = true;
-    }
-    synchronized public void estrazEnded2() {
-        this.estazEnd2 = true;
-    }
-
-    
     public String Vect() {
 
         String s = "[" + v[0].toString() + ", "+ v[1].toString() + ", "+ v[2].toString() + ", "+ v[3].toString() + ", "+ v[4].toString() + "]";
@@ -92,8 +71,6 @@ public class DatiCondivisi {
     }
     
     public void reset(){
-        estazEnd1 = false;
-        estazEnd2 = false;
         n1find = false;
         n2find = false;
               

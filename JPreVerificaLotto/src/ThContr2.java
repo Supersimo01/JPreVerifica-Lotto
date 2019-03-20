@@ -24,7 +24,6 @@ public class ThContr2 extends Thread{
                 dc.setN2find();
             }
         }
-            dc.estrazEnded2();
             dc.getPrint().release();
         
         } catch (InterruptedException ex) {

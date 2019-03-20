@@ -52,37 +52,8 @@ public class main {
         th2.start();
         th3.start();
         thP.start();
+               
         
-        boolean change = false;
-        for (int i = 0; i < nRuote; i++) {
-           while(true && change == false){
-            if(dc.isEstazEnd1() == true && dc.isEstazEnd2() == true){
-                
-                System.out.print("Sono stati estratti i seguenti numeri: ");
-                System.out.println(dc.Vect());
-                
-                if(dc.isN1find())
-                {
-                    System.out.print("Hai indovinato il primo numero");
-                }
-                if(dc.isN2find())
-                {
-                    System.out.print("Hai indovinato il secondo numero");
-                }
-                
-                dc.reset();
-                change = true;
-                
-            }
-            else{
-                sleep(100);
-                change = false;
-            } 
-        }
-        
-        
-                
-        }
         
     }
     
